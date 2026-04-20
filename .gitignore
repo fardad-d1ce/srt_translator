@@ -9,3 +9,6 @@ SRT-output/*
 __pycache__/
 .ipynb_checkpoints/
 .env
+
+# notebook
+notebook.ipynb

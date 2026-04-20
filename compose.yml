@@ -1,0 +1,32 @@
+---
+  services:
+    mt5_srt_translator-1.0:
+      # # if using an existing image:
+      # image: jupyter/tensorflow-notebook:latest
+      
+      # if building a custom image:
+      build: ./
+
+      # expose port 8888 to host machine port 5000
+      ports:
+        - 5000:8888
+
+      # set jupyter environmental variables, e.g. token/password, HF_HOME
+      environment:
+      - JUPYTER_TOKEN=your_password
+      # Tells the AI: "Put the models in the hf_cache folder I made"
+      - HF_HOME=/home/jovyan/work/hf_cache
+
+      # mount current directory (./) to a subfolder inside the container
+      # this keeps hidden config files INSIDE the container's internal home
+      volumes:
+        - ./:/home/jovyan/work
+      # working directory inside the container
+      working_dir: /home/jovyan/work
+
+      # We use 'python -m' to ensure we use the exact jupyter we just installed
+      command: python -m jupyterlab --ip=0.0.0.0 --no-browser --ServerApp.token=${JUPYTER_TOKEN}
+
+      # This line prevent many "immediate exit" issues  
+      tty: true
+...

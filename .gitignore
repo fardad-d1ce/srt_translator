@@ -1,0 +1,11 @@
+# AI Models and Cache
+hf_cache/
+
+# User Data
+SRT-input/*
+SRT-output/*
+
+# Python/Docker junk
+__pycache__/
+.ipynb_checkpoints/
+.env

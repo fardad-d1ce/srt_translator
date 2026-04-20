@@ -11,4 +11,4 @@ __pycache__/
 .env
 
 # notebook
-notebook.ipynb
+srt_translator_app.ipynb

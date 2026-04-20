@@ -1,0 +1,4 @@
+# Basic Dependencies
+transformers
+pysrt
+tqdm

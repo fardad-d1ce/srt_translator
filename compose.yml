@@ -1,6 +1,6 @@
 ---
   services:
-    mt5_srt_translator-1.0:
+    srt_translator:
       # # if using an existing image:
       # image: jupyter/tensorflow-notebook:latest
       

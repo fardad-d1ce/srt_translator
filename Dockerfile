@@ -10,9 +10,9 @@ WORKDIR /home/appuser
 RUN pip install --no-cache-dir \
     jupyterlab \
     transformers \
-    sentencepiece \
-    protobuf \
-    pysrt tqdm
+    torch \
+    pysrt \
+    tqdm
 # Install the "Engine" (Torch)
 RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 

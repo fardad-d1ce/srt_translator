@@ -8,7 +8,11 @@
 ## Prerequisites
 -   Python 3.14: [https://www.python.org/downloads/](https://www.python.org/downloads/).
 -   Docker Desktop (optional): [https://www.docker.com/](https://www.docker.com/).
-## Installation
+## How to Use
+0. Navigate to a desired directory.
+    ```bash
+    cd <YOUR_desired_directory>
+    ```
 1. Clone the repository by running:
     ```bash
     git clone https://github.com/d1ce/srt_translator.git
@@ -17,17 +21,20 @@
    ⚠ If NOT familiar with ***Git***, just download the ZIP file.
 
 2. Put your SRT file(s) in the `SRT-input` directory.
-3.   Non-***Docker*** users;
+3.   Non-***Docker*** users:
      - Install basic dependencies:
         ```bash
-        pip install  -r basic_requirements.txt
+        pip install  -r requirements.txt
         ```
-     - Install `PyTorch`: see [here](https://pytorch.org/get-started/locally/) to choose the compatible version with your system.
-        For Windows users without CUDA:
+     - Install light CPU-based `PyTorch`:
+        see [here](https://pytorch.org/get-started/locally/) to choose the compatible version with your system.
+        Example:
         ```bash
-        pip3 install torch torchvision
+        pip3 install torch # for windows
         ```
-
+        ```bash
+        pip install torch --index-url https://download.pytorch.org/whl/cpu # for linux
+        ```
         ⚠ ***Docker*** users can, instead, run the Docker compose command:
         ```bash
         docker compose up --build
@@ -36,16 +43,27 @@
     ```bash
     python srt_translator_app.py
     ```
-5. Done!
+5. Choose your intended translation from the list, and wait for translation.
+6. Done!
     -   The translated SRTs will be in the `SRT-output` directory.
+7. Clean up the `hf_cache` directory.
+    ```bash
+    rm -rf hf_cache
+    ```
 
 ## How the Script Works
 1. The script reads the SRT files from the `SRT-input` directory.
-2. It uses the `transformers` library to load a proper [`mT5-base` model](https://huggingface.co/SeyedAli/English-to-Persian-Translation-mT5-V1).
-3. The script downloads the model's weights from HuggingFace.
-(~*1.5GB*. Only done once per session)
-4. The script using the model, the translated SRT files is saved back to `SRT-output` directory.
+2. It uses the `transformers` library to load a proper `mT5-base` model.
+3. The script downloads the model's weights from HuggingFace in `hf_cache` directory. (~*500MB-1.5GB*. Only downloaded ***ONCE***)
+4. The script generate translated SRT files into `SRT-output` directory.
 
 ## Roadmap
-- [ ] Add support for multiple languages.
-- [ ] Add support for multiple models.
+- [x] Add support for multiple languages ...
+- [ ] Add support for multiple models ...
+- [ ] Add a user-friendly web-app GUI.
+## Current Languages Supported
+English to:
+-   French
+-   Spanish
+-   German
+-   Persian (Farsi)

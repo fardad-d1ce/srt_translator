@@ -11,8 +11,11 @@ RUN pip install --no-cache-dir \
     jupyterlab \
     transformers \
     torch \
+    sacremoses \
+    sentencepiece \
     pysrt \
-    tqdm
+    tqdm 
+
 # Install the "Engine" (Torch)
 RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 

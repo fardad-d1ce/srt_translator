@@ -1,8 +1,8 @@
-# AI Models and Cache
+# AI Models Weights and Cache
 hf_cache/
 
 # User Data
-SRT-input/*
+# SRT-input/*
 SRT-output/*
 
 # Python/Docker junk
@@ -12,3 +12,4 @@ __pycache__/
 
 # notebook
 srt_translator_app.ipynb
+test.ipynb

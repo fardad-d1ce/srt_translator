@@ -1,0 +1,10 @@
+# Lightweight CPU-only requirements
+torch --index-url https://download.pytorch.org/whl/cpu
+transformers # For the model
+sacremoses # For sentence tokenization
+sentencepiece # For tokenization
+
+pysrt # For reading and writing SRT files
+
+tqdm # For progress bars
+logging # For logging messages

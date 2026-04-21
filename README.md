@@ -3,65 +3,71 @@
 
 
 
-# English-to-Persian SRT Translation Using mT5 Model - Ver 1.0
+# Subtitle `.srt` Translator
+This project is a simple SRT file translator that uses the `mT5-base` model from HuggingFace.
+-   Easy-to-use command-line interface.
+-   English to French, Spanish, German, and Persian.
+-   Dockerized image.
 
 ## Prerequisites
 -   Python 3.14: [https://www.python.org/downloads/](https://www.python.org/downloads/).
 -   Docker Desktop (optional): [https://www.docker.com/](https://www.docker.com/).
-## How to Use
-0. Navigate to a desired directory.
+
+## Installation
+⚠ If NOT familiar with **Git**, just download the ZIP file.
+1. Navigate to a desired directory.
     ```bash
     cd <YOUR_desired_directory>
     ```
-1. Clone the repository by running:
+2. Clone the repository by running:
     ```bash
     git clone https://github.com/d1ce/srt_translator.git
     cd srt_translator
     ```
-   ⚠ If NOT familiar with ***Git***, just download the ZIP file.
-
-2. Put your SRT file(s) in the `SRT-input` directory.
-3.   Non-***Docker*** users:
+## How to Use 
+### Non-*Docker* users:
+1. Put your SRT file(s) in the `SRT-input` directory.
+2.  
      - Install basic dependencies:
         ```bash
         pip install  -r requirements.txt
         ```
-     - Install light CPU-based `PyTorch`:
-        see [here](https://pytorch.org/get-started/locally/) to choose the compatible version with your system.
+     - Install `PyTorch`:
         Example:
         ```bash
-        pip3 install torch # for windows
+        # for windows without CUDA
+        pip3 install torch
         ```
         ```bash
-        pip install torch --index-url https://download.pytorch.org/whl/cpu # for linux
+        # for linux without CUDA
+        pip install torch --index-url https://download.pytorch.org/whl/cpu
         ```
-        ⚠ ***Docker*** users can, instead, run the Docker compose command:
-        ```bash
-        docker compose up --build
-        ```
-4. Run the `Python` script, *e.g.*:
+        see [here](https://pytorch.org/get-started/locally/) to choose the compatible version with your system.
+3. Run the `Python` script, *e.g.*:
     ```bash
     python srt_translator_app.py
     ```
-5. Choose your intended translation from the list, and wait for translation.
-6. Done!
-    -   The translated SRTs will be in the `SRT-output` directory.
-7. Clean up the `hf_cache` directory.
+4. Choose your intended translation from the list.
+5. BAM! Check `SRT-output` directory.
+6. (optional) Clean up the `hf_cache` directory.
     ```bash
     rm -rf hf_cache
     ```
-
+### *Docker* setup:
+```bash
+docker compose up --build
+```
 ## How the Script Works
-1. The script reads the SRT files from the `SRT-input` directory.
-2. It uses the `transformers` library to load a proper `mT5-base` model.
-3. The script downloads the model's weights from HuggingFace in `hf_cache` directory. (~*500MB-1.5GB*. Only downloaded ***ONCE***)
-4. The script generate translated SRT files into `SRT-output` directory.
+1. Reads the SRT files from the `SRT-input` directory.
+2. Uses the `transformers` library to load a proper `mT5-base` model.
+3. Downloads the model's weights from HuggingFace in `hf_cache` directory (~*500MB-1.5GB* download only ***ONCE***).
+4. Generates translated SRT files into `SRT-output` directory.
 
 ## Roadmap
 - [x] Add support for multiple languages ...
 - [ ] Add support for multiple models ...
 - [ ] Add a user-friendly web-app GUI.
-## Current Languages Supported
+## Current Language Support
 English to:
 -   French
 -   Spanish

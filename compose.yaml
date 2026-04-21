@@ -1,0 +1,16 @@
+services:
+  srt_translator:
+    build: .
+    ports:
+      - "5000:8888"
+    volumes:
+      # Mount your current folder to the container
+      - .:/home/appuser
+      # Persist your Hugging Face models here
+      - ./hf_cache:/home/appuser/.cache/huggingface
+    environment:
+      - HF_HOME=/home/appuser/.cache/huggingface
+      - PYTHONUNBUFFERED=1
+    # Keeps the container alive and interactive
+    tty: true
+    stdin_open: true

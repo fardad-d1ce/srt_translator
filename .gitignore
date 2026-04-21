@@ -10,6 +10,7 @@ __pycache__/
 .ipynb_checkpoints/
 .env
 
-# notebook
+# test and temporary files
 srt_translator_app.ipynb
 test.ipynb
+web_app.py

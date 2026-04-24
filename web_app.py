@@ -31,10 +31,6 @@ def translate_srt(files, source_lang, target_lang):
     logs = []
     translated_files = []
     
-    def log_update(msg):
-        logs.append(msg)
-        return "\n".join(logs)
-
     try:
         model_id = SUPPORTED_TRANSLATIONS.get((source_lang, target_lang))
         if not model_id:
@@ -52,7 +48,6 @@ def translate_srt(files, source_lang, target_lang):
         tokenizer = AutoTokenizer.from_pretrained(model_id, legacy=False, cache_dir=str(CACHE_DIR))
         model = AutoModelForSeq2SeqLM.from_pretrained(model_id, cache_dir=str(CACHE_DIR))
         
-        yield None, log_update("✅ Model loaded successfully!")
         OUTPUT_DIR.mkdir(exist_ok=True)
 
         for file_obj in files:

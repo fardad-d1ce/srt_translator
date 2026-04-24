@@ -17,7 +17,8 @@ RUN pip install --no-cache-dir \
     pysrt \
     sacremoses \
     tqdm \
-    sentencepiece
+    sentencepiece \
+    gradio
 
 # Install CPU-only PyTorch (Save ~2GB compared to the full version)
 RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu

@@ -5,5 +5,5 @@ sacremoses # For sentence tokenization
 sentencepiece # For tokenization
 
 pysrt # For reading and writing SRT files
-
 tqdm # For progress bars
+gradio # For the web app

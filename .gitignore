@@ -2,7 +2,7 @@
 hf_cache/
 
 # User Data
-# SRT-input/*
+SRT-input/*
 SRT-output/*
 
 # junk folders

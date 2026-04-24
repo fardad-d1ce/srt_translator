@@ -3,7 +3,10 @@ hf_cache/
 
 # User Data
 SRT-input/*
+!SRT-input/.gitkeep
+
 SRT-output/*
+!SRT-output/.gitkeep
 
 # junk folders
 __pycache__/
